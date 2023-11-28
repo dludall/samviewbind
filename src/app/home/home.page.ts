@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CompchildComponent } from '../compchild/compchild.component';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  @ViewChild(CompchildComponent) comChild!: CompchildComponent;
   constructor() {}
 
+  title:string='';
+  ngAfterViewInit() {
+    // this.comChild.showmePomeInfo();
+  }
+  showmeInfo(){
+    this.title = this.comChild.showmePomeInfo();
+  }
 }
